@@ -2,6 +2,8 @@
 
 cd /opt/cloud_test_app
 
+ls
+
 while [[ $# -gt 0 ]]
 do
 key="$1"

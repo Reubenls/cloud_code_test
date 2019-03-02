@@ -55,6 +55,12 @@ def get_migration_data():
         # If the migration is from the locking app, also add it to:
         #   locking_migrations
 
+        # select needed migrations [ ] 
+        needed_migrations = set(filter(lambda m: m.split('  ')[0]=='[ ]',migrations))
+        # filter migrations from locking 
+        locking_migrations = set(filter(lambda m: m.split('  ')[1].startswith('locking'),needed_migrations))
+        num_needed_migrations = len(needed_migrations)
+
         return {
             'migrations': migrations,
             'num_migrations': num_migrations,
