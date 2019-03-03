@@ -1,0 +1,23 @@
+{% extends "questionnaire/base.html" %}
+
+{% block body_content %}
+{% load bootstrap4 %}
+
+<div class="container main-body">
+
+  <div class="questionnaire-main">
+    <h1 class="questionnaire-heading">Simple Questionnaire</h1>
+    <p>
+      This is a simple questionnaire, with a rather inane question,
+      but hey, we gotta test something right?
+    </p>
+    <form action="questionnaire" method="post">
+      {% csrf_token %} 
+      {% bootstrap_form form %}
+      {% buttons %}
+          <button type="submit" class="btn btn-primary">Submit</button>
+      {% endbuttons %}
+    </form>
+  </div>
+</div>
+{% endblock %}
