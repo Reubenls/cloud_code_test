@@ -1,0 +1,44 @@
+{% extends "questionnaire/base.html" %}
+
+{% block body_content %}
+{% load bootstrap4 %}
+{% load filters_custom %}
+
+
+<div class="container main-body">
+
+  <div class="results-main">
+    <h1 class="results-heading">Simple Questionnaire</h1>
+    <p>
+      This is a simple questionnaire, with a rather inane question,
+      but hey, we gotta test something right?
+    </p>
+    <a href="/" class="btn btn-primary">back to index</a>
+    <h2>Results</h2>
+    <div>
+      <h3>Months</h3>
+      <ul>
+        {% for m , c in month_count.items %}
+        <li>{{ m|display_month }} {{ c }} ({{ c|as_percentage:total }})</li>
+        {% endfor %}
+        <ul />
+    </div>
+    <div>
+      <h3>Days</h3>
+      <ul>
+        {% for d , c in day_count.items %}
+        <li>{{ d|display_day }} {{ c }} ({{ c|as_percentage:total }})</li>
+        {% endfor %}
+        <ul />
+    </div>
+    <div>
+      <h3>Favourite Day to Month Relation</h3>
+      <ul>
+        {% for m , d in relation_set.items %}
+        <li>{{ m|display_month }}: {{ d|display_day }}</li>
+        {% endfor %}
+        <ul />
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,29 +1,29 @@
 from django.db import models
 
 class Answers(models.Model):
-    MONTHS = (
-        ('JAN', 'January'),
-        ('FEB', 'Febuary'),
-        ('MAR', 'March'),
-        ('APR', 'April'),
-        ('MAY', 'May'),
-        ('JUN', 'June'),
-        ('JUL', 'July'),
-        ('AUG', 'August'),
-        ('SEP', 'September'),
-        ('OCT', 'October'),
-        ('NOV', 'November'),
-        ('DEC', 'December')
-    )
-    DAYS = (
-        ('MON', 'Monday'),
-        ('TUE', 'Tuesday'),
-        ('WED', 'Wednesday'),
-        ('THU', 'Thursday'),
-        ('FRI', 'Friday'),
-        ('SAT', 'Saturday'),
-        ('SUN', 'Sunday')
-    )
+    MONTHS = [
+        (1, 'January'),
+        (2, 'Febuary'),
+        (3, 'March'),
+        (4, 'April'),
+        (5, 'May'),
+        (6, 'June'),
+        (7, 'July'),
+        (8, 'August'),
+        (9, 'September'),
+        (10, 'October'),
+        (11, 'November'),
+        (12, 'December')
+    ]
+    DAYS = [
+        (1, 'Monday'),
+        (2, 'Tuesday'),
+        (3, 'Wednesday'),
+        (4, 'Thursday'),
+        (5, 'Friday'),
+        (6, 'Saturday'),
+        (7, 'Sunday')
+    ]
 
-    fav_month = models.CharField(max_length=3, choices=MONTHS)
-    fav_day = models.CharField(max_length=3, choices=DAYS)
+    fav_month = models.IntegerField(choices=MONTHS)
+    fav_day = models.IntegerField(choices=DAYS)
